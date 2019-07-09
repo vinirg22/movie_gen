@@ -20,7 +20,7 @@ describe("POST /api/login", function() {
     db.sequelize.sync({ force: true }).then(() => {
       request = chai.request(server);
       db.User.create({
-        email: "testuser@test.com",
+        username: "testuser",
         password: "myPassword"
       }).then(dbUser => {
         dummyUser = dbUser;
@@ -33,7 +33,7 @@ describe("POST /api/login", function() {
     agent = chai.request.agent(server);
     // Create an object to send to the endpoint
     dummyUser = {
-      email: "testuser@test.com",
+      username: "testuser",
       password: "myPassword"
     };
 
