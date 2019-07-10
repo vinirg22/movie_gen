@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   User.associate = models => {
-    models.User.hasMany(models.movie);
+    models.User.hasMany(models.MovieScores);
   };
 
   // Creating a custom method for our User model.
