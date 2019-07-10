@@ -1,0 +1,1 @@
+INSERT INTO users (user_name, fav_genre) VALUES ("Joe", "Comedy");

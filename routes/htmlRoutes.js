@@ -16,21 +16,35 @@ module.exports = app => {
       where: {
         id: req.user.id
       },
-      include: [db.Example]
+      include: [db.Survey]
     }).then(dbUser => {
       res.render("profile", { user: dbUser });
     });
   });
 
+  // Load survey page
+  app.get("/survey", isAuthenticated, (req, res) => {
+    db.User.findOne({
+      where: {
+        id: req.user.id
+      },
+      include: [db.Survey]
+    }).then(dbUser => {
+      res.render("survey", { user: dbUser });
+    });
+  });
+
   // Load example page and pass in an example by id
-  app.get("/example/:id", isAuthenticated, (req, res) => {
-    db.Example.findOne({ where: { id: req.params.id } }).then(dbExample => {
-      res.render("example", {
-        example: dbExample,
+  app.get("/survey/:id", isAuthenticated, (req, res) => {
+    db.Example.findOne({ where: { id: req.params.id } }).then(dbSurvey => {
+      res.render("survey", {
+        survey: dbSurvey,
         user: req.user
       });
     });
   });
+  // Load movies page
+  app.get("/movies", (req, res) => res.render("movies"));
 
   // Render 404 page for any unmatched routes
   app.get("*", (req, res) => res.render("404"));
