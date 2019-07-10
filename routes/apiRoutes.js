@@ -6,7 +6,7 @@ const unirest = require("unirest");
 
 module.exports = app => {
   // Get all examples
-  app.get("/api/examples", isAuthenticated, (req, res) => {
+  app.get("/api/user", isAuthenticated, (req, res) => {
     db.Example.findAll({
       where: {
         UserId: req.user.id
@@ -76,5 +76,31 @@ module.exports = app => {
       .end(function(result) {
         res.json(result.body);
       });
+  });
+
+  app.post("/api/moviescores", isAuthenticated, (req, res) => {
+    db.MovieScores.create({
+      action: 0,
+      adventure: 0,
+      animation: 0,
+      comedy: 0,
+      crime: 0,
+      documentary: 0,
+      drama: 0,
+      family: 0,
+      fantasy: 0,
+      history: 0,
+      horror: 0,
+      music: 0,
+      mystery: 0,
+      romance: 0,
+      sciencefiction: 0,
+      tvmovie: 0,
+      thriller: 0,
+      war: 0,
+      western: 0
+    }).then(dbMovieScores => {
+      res.json(dbMovieScores);
+    });
   });
 };
