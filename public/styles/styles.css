@@ -1,3 +1,30 @@
 .list-group-item {
   line-height: 2.5;
 }
+
+
+body {
+  background-image: url("https://images.pexels.com/photos/1764338/pexels-photo-1764338.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-color: #cccccc;
+ }
+ 
+ .navbar{
+   height: 100px;
+ }
+
+.signup{
+  width: 50%;
+  height: 50%;
+}
+
+.box{
+  border-style: solid; 
+  margin-top:10%;
+  background-color: #534f4f5d;
+  padding: 30px;
+  text-align: center;
+}
+
+.pushdown {
+  margin-top:10%;
+}

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 const db = require("../models");
 const passport = require("../config/passport");
 const isAuthenticated = require("../config/middleware/isAuthenticated");
@@ -46,8 +47,9 @@ module.exports = app => {
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
   app.post("/api/signup", (req, res) => {
+    console.log(req.body);
     db.User.create({
-      email: req.body.email,
+      username: req.body.username,
       password: req.body.password
     })
       .then(() => {
@@ -63,4 +65,6 @@ module.exports = app => {
     req.logout();
     res.redirect("/");
   });
+
+
 };

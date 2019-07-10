@@ -26,7 +26,7 @@ describe("POST /api/signup", function() {
   it("should sign up a new user", function(done) {
     // Create an object to send to the endpoint
     dummyUser = {
-      email: "testuser@test.com",
+      username: "testuser",
       password: "myPassword"
     };
 
