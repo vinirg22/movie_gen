@@ -28,6 +28,8 @@ module.exports = app => {
       });
     });
   });
+  // Load movies page
+  app.get("/movies", (req, res) => res.render("movies"));
 
   // Render 404 page for any unmatched routes
   app.get("*", (req, res) => res.render("404"));
