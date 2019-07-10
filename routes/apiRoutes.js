@@ -73,7 +73,7 @@ module.exports = app => {
   app.get("/movies", (req, res) => {
     unirest.get("https://api.themoviedb.org/3/discover/movie?api_key=" + API_KEY + "&language=en-US&region=US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=12%2C%2016")
       .header("Content-Type", "application/json")
-      .end(function(result) {
+      .end(function (result) {
         res.json(result.body);
       });
   });

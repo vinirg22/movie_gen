@@ -1,57 +1,20 @@
 <div class="row">
-  <div class="col-8 offset-2">
-    <h1>Hello {{user.email}}!</h1>
-    <form class="clearfix mb-4" action="POST">
-      <div class="form-group">
-        <label for="example-text">Example Text</label>
-        <input type="text" id="example-text" class="form-control" aria-describedby="example-text"
-          placeholder="Enter Example Text">
-      </div>
-      <div class="form-group">
-        <label for="example-description">Example Description</label>
-        <textarea class="form-control" id="example-description" aria-describedby="example-description"
-          placeholder="Enter Example Description"></textarea>
-      </div>
-      <button id="submit" class="btn btn-primary float-right">Submit</button>
-    </form>
-    <h3>Examples:</h3>
-    <ul id="example-list" class="list-group">
-      {{#each user.Examples}}
-      <li data-id="{{this.id}}" class="list-group-item">
-        <a href="example/{{this.id}}">{{this.text}}</a>
-        <button class="btn btn-danger float-right delete">ｘ</button>
-      </li>
-      {{/each}}
-    </ul>
-  </div>
-</div>
-
-
-<div class="container box">
-	    <div class="signup mx-auto">
-        <div class="row">
-            <div class="col-md-12">
-                <h1>Sign Up & Get Started</h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <form id="user-sign-up">
-                    <div class="form-group">
-                        <label for="username">User Name</label>
-                        <input type="username" name="username" class="form-control" id="username" aria-describedby="usernameHelp"
-                            placeholder="Enter username">
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" name="password" class="form-control" id="password"
-                            placeholder="Password">
-                    </div>
-                    <button type="submit" class="btn btn-danger">Submit</button>
-                </form>
-            </div>
-        </div>
-    </div>
+	<div class="col-8 offset-2">
+		<h1>MOVIE GEN</h1>
+		<form class="clearfix mb-4" action="POST">
+			<div class="form-group">
+				<input type="text" id="example-text">
+				<button id="submit" class="btn btn-primary float-right">Search</button>
+		</form>
+		<ul id="example-list" class="list-group">
+			{{#each user.Examples}}
+			<li data-id="{{this.id}}" class="list-group-item">
+				<a href="example/{{this.id}}">{{this.text}}</a>
+				<button class="btn btn-danger float-right delete">ｘ</button>
+			</li>
+			{{/each}}
+		</ul>
+	</div>
 
 	<div class="row" id="movies-container">
 		<!--movie box -->
@@ -60,7 +23,8 @@
 			<div class="box gallery">
 				<div class="card">
 					<img class="img-responsive" id="new-movies" src={{this.movie_poster}}>
-					<a onClick="modalDisplay({{@index}})" href="#" class="overlay link" id="trigger-modal{{@index}}"></a>
+					<a onClick="modalDisplay({{@index}})" href="#" class="overlay link"
+						id="trigger-modal{{@index}}"></a>
 					<div class="info">
 						<div class="foot">
 							<p class="movie-title">{{this.movie_name}}</p>
@@ -151,8 +115,8 @@
 
 							<!-- trailer -->
 
-							<iframe id="trailer-box" src="https://www.youtube.com/embed/{{this.movie_trailer}}" frameborder="0"
-								allow="autoplay; encrypted-media" allowfullscreen></iframe>
+							<iframe id="trailer-box" src="https://www.youtube.com/embed/{{this.movie_trailer}}"
+								frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 
 						</div>
