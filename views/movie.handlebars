@@ -1,0 +1,141 @@
+
+<div class="container box">
+	    <div class="signup mx-auto">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Sign Up & Get Started</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <form id="user-sign-up">
+                    <div class="form-group">
+                        <label for="username">User Name</label>
+                        <input type="username" name="username" class="form-control" id="username" aria-describedby="usernameHelp"
+                            placeholder="Enter username">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" class="form-control" id="password"
+                            placeholder="Password">
+                    </div>
+                    <button type="submit" class="btn btn-danger">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+	<div class="row" id="movies-container">
+		<!--movie box -->
+
+		<div class="col-lg-2 col-md-3 col-sm-6 col-xs-12" id="movie-box">
+			<div class="box gallery">
+				<div class="card">
+					<img class="img-responsive" id="new-movies" src={{this.movie_poster}}>
+					<a onClick="modalDisplay({{@index}})" href="#" class="overlay link" id="trigger-modal{{@index}}"></a>
+					<div class="info">
+						<div class="foot">
+							<p class="movie-title">{{this.movie_name}}</p>
+							<i class="line"></i>
+							<p class="runtime">{{this.movie_time}}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="myModal{{@index}}" class="modal">
+
+			<!-- Modal content -->
+			<div class="modal-content">
+
+				<div class="row" id="modal-body">
+					<!--poster -->
+					<div class="col-5" id="search-movie">
+						<img id="selected-movie-poster" src={{this.movie_poster}}>
+					</div>
+
+					<div class="col-7" id="movie-scroll">
+						<!--close BTN -->
+						<span id='closeit{{@index}}' class="close">&times;</span>
+
+						<div class="container" id="modal-movie-info-box">
+							<!--Movie Title -->
+							<h2 class="movie-title" id="modal-movie-title">{{this.movie_name}}</h2>
+							<!--Year, Runtime & Genre -->
+							<div class="row" id="YRG-box">
+								<div class="col-2" id="year">
+									<h5>{{this.movie_year}}</h5>
+								</div>
+								<div class="col-2" id="runtime">
+									<h5>{{this.movie_time}}</h5>
+								</div>
+								<div class="col-6" id="genre">
+									<h5>{{this.movie_genre}}</h5>
+								</div>
+							</div>
+							<!--Raitings -->
+							<div class="row" id="raitings">
+								<div class="col-3" id="raiting-imdb">
+									<h6 class="imdb-text">{{this.movie_ratingImdb}}</h6>
+								</div>
+								<div class="col-4" id="raiting-roten">
+									<h6 class="roten-text">{{this.movie_ratingRotten}}</h6>
+								</div>
+							</div>
+							<!--Director-->
+							<div class="row">
+								<div class="col-10" id="director">
+									<p><strong>Directed by: </strong>{{this.movie_director}}</p>
+								</div>
+							</div>
+							<!--Cast -->
+							<div class="row">
+								<div class="col-10" id="cast">
+									<p><strong>Starring: </strong>{{this.movie_actors}}</p>
+								</div>
+							</div>
+							<!--Plot -->
+							<div class="row">
+								<div class="col-10" id="plot">
+									<p><strong>Plot: </strong>{{this.movie_plot}}</p>
+								</div>
+							</div>
+							<!--Watched movies BTN -->
+							<div class="row">
+								<div class="col-md-3">
+									<form action="/api/new/watched/{{this.id}}?_method=PUT" method="POST">
+										<input type="hidden" name="watched" value="true">
+										<button type="submit"></button>
+									</form>
+								</div>
+								<!-- Remove movie button -->
+
+								<div class="col-md-3">
+									<form action="/api/new/delete/{{this.id}}?_method=DELETE" method="POST">
+										<input type="hidden" name="watched" value="true">
+										<button type="submit"></button>
+									</form>
+								</div>
+								<div class="col-md-6"></div>
+							</div>
+
+
+							<!-- trailer -->
+
+							<iframe id="trailer-box" src="https://www.youtube.com/embed/{{this.movie_trailer}}" frameborder="0"
+								allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

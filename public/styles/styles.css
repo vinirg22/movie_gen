@@ -27,3 +27,59 @@ body {
   padding: 30px;
   text-align: center;
 }
+
+#add-movie-input {
+  margin-top: 15px;
+  margin-right: 45px;
+  border-radius: 0;
+  height: 30px;
+  width: 200px;
+  float: right;
+  background-color: rgb(237, 237, 237);
+  border: none;
+}
+
+#add-movie-button {
+  margin-top: 15px;
+  border-radius: 0;
+  float: right;
+  height: 30px;
+}
+
+#add-movie-image {
+  max-width: 30px;
+}
+
+#add-movie-button:hover {
+  opacity: .5;
+}
+
+
+/*end of add button*/
+
+
+/*search button*/
+
+#search-movie-input {
+  margin-top: 45px;
+  margin-left: 45px;
+  border-radius: 0;
+  height: 30px;
+  width: 245px;
+  float: left;
+  background-color: rgb(237, 237, 237);
+  border: none;
+}
+
+#search-movie-button {
+  margin-top: 45px;
+  margin-right: 25px;
+  border-radius: 0;
+  float: left;
+  height: 30px;
+}
+
+#search-movie-button:hover {
+  opacity: .5;
+}
+

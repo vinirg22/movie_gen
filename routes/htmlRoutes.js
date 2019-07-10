@@ -1,6 +1,9 @@
 const db = require("../models");
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 module.exports = app => {
+  // Load home page
+  app.get("/movie", (req, res) => res.render("movie"));
+
   // Load signup page
   app.get("/", (req, res) => res.render("signup"));
 
