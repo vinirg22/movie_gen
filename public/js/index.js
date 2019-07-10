@@ -12,19 +12,19 @@ var API = {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/examples",
+      url: "api/MovieScores",
       data: JSON.stringify(example)
     });
   },
   getExamples: function() {
     return $.ajax({
-      url: "api/examples",
+      url: "api/MovieScores",
       type: "GET"
     });
   },
   deleteExample: function(id) {
     return $.ajax({
-      url: "api/examples/" + id,
+      url: "api/MovieScores/" + id,
       type: "DELETE"
     });
   }

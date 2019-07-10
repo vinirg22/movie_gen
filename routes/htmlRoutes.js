@@ -16,7 +16,7 @@ module.exports = app => {
       where: {
         id: req.user.id
       },
-      include: [db.Survey]
+      include: [db.MovieScores]
     }).then(dbUser => {
       res.render("movie", { user: dbUser });
     });
@@ -27,8 +27,8 @@ module.exports = app => {
     db.User.findOne({
       where: {
         id: req.user.id
-      },
-      include: [db.Survey]
+      }
+      // include: [db.MovieScores]
     }).then(dbUser => {
       res.render("survey", { user: dbUser });
     });
