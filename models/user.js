@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt-nodejs");
 // Creating our User model
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define("User", {
-    // The username cannot be null, and must be a proper username before creation
+    // The username cannot be null, and must be a unique username before creation
     username: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   User.associate = models => {
-    models.User.hasMany(models.Example);
+    models.User.hasMany(models.Survey);
   };
 
   // Creating a custom method for our User model.

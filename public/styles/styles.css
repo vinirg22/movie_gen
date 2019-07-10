@@ -15,15 +15,16 @@ body {
 .signup{
   width: 50%;
   height: 50%;
- border-color: red;
- 
- 
 }
 
 .box{
   border-style: solid; 
-  margin-top:30%;
+  margin-top:10%;
   background-color: #534f4f5d;
   padding: 30px;
   text-align: center;
+}
+
+.pushdown {
+  margin-top:10%;
 }
