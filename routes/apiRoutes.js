@@ -3,7 +3,6 @@ const db = require("../models");
 const passport = require("../config/passport");
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 const unirest = require("unirest");
-
 module.exports = app => {
   // Get all examples
   app.get("/api/moviescores", isAuthenticated, (req, res) => {
@@ -15,9 +14,8 @@ module.exports = app => {
       res.json(dbExamples);
     });
   });
-
   // Create a new MovieScores
-  app.post("/api/moviescores", isAuthenticated, (req, res) => {
+  app.post("/api/moviescores", (req, res) => {
     db.MovieScores.create({
       action: 0,
       adventure: 0,
@@ -37,7 +35,8 @@ module.exports = app => {
       tvmovie: 0,
       thriller: 0,
       war: 0,
-      western: 0
+      western: 0,
+      UserId: 1
     }).then(dbMovieScores => {
       res.json(dbMovieScores);
     });

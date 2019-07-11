@@ -20,4 +20,17 @@ $("#user-sign-up").on("submit", function(e) {
       console.log(err);
       alert(err.responseText);
     });
+
+  $.ajax({
+    method: "POST",
+    url: "/api/moviescores"
+  })
+    .then(function(data) {
+      console.log(data);
+      window.location.replace(data);
+    })
+    .catch(function(err) {
+      console.log(err);
+      alert(err.responseText);
+    });
 });
