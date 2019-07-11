@@ -1,23 +1,21 @@
 $("#user-survey").on("submit", function(e) {
   e.preventDefault();
+  alert("I HAVE BEEN CLICKED!!!!!!!FIND ME!!!");
+  var surveyResponse = {
+    question1: $("#question1").val()
+  };
+  console.log(surveyResponse);
   $.ajax({
     method: "PUT",
-    url: "/api/survey",
+    url: "/api/moviescores",
     data: {
-      question1: $("#question1 option:selected")
-        .val()
-        .trim(),
-      question2: $("#question2 option:selected")
-        .val()
-        .trim(),
-      question3: $("#question3 option:selected")
-        .val()
-        .trim()
+      genres: [question1.value, question2.value, question3.value]
     }
   })
     .then(function(data) {
-      console.log(data);
-      window.location.replace(data);
+      console.log(data.question1);
+      // window.location.replace(data);
+      // console.log(question1);
     })
     .catch(function(err) {
       console.log(err);

@@ -25,7 +25,7 @@ module.exports = app => {
       where: {
         id: req.user.id
       }
-      // include: [db.MovieScores]
+      //include: [db.MovieScores]
     }).then(dbUser => {
       res.render("survey", { user: dbUser });
     });
