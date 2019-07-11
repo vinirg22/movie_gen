@@ -3,19 +3,17 @@ const db = require("../models");
 const passport = require("../config/passport");
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 const unirest = require("unirest");
-
 module.exports = app => {
-  // Get all examples
+  // Get all moviescores
   app.get("/api/moviescores", isAuthenticated, (req, res) => {
-    db.Example.findAll({
+    db.MovieScores.findAll({
       where: {
         UserId: req.user.id
       }
-    }).then(dbExamples => {
-      res.json(dbExamples);
+    }).then(dbMovieScores => {
+      res.json(dbMovieScores);
     });
   });
-
   // Create a new MovieScores
   app.post("/api/moviescores", isAuthenticated, (req, res) => {
     db.MovieScores.create({
@@ -37,8 +35,20 @@ module.exports = app => {
       tvmovie: 0,
       thriller: 0,
       war: 0,
-      western: 0
+      western: 0,
+      UserId: req.user.id
     }).then(dbMovieScores => {
+      res.json(dbMovieScores);
+    });
+  });
+  // Create a new MovieScores
+  app.put("/api/moviescores", (req, res) => {
+    console.log(req.user);
+    console.log(req.body);
+    db.MovieScores.increment(req.body.genres, {
+      by: 1, where: { UserId: req.user.id}
+    }
+    ).then(dbMovieScores => {
       res.json(dbMovieScores);
     });
   });
@@ -57,7 +67,8 @@ module.exports = app => {
     // Since we're doing a POST with javascript, we can't actually redirect that post into a GET request
     // So we're sending the user back the route to the members page because the redirect will happen on the front end
     // They won't get this or even be able to access this page if they aren't authed
-    res.json("/profile");
+    // res.json("/profile");
+    res.json("/survey");
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
@@ -68,6 +79,29 @@ module.exports = app => {
     db.User.create({
       username: req.body.username,
       password: req.body.password
+    }).then ((newUser) => {
+      db.MovieScores.create({
+        action: 0,
+        adventure: 0,
+        animation: 0,
+        comedy: 0,
+        crime: 0,
+        documentary: 0,
+        drama: 0,
+        family: 0,
+        fantasy: 0,
+        history: 0,
+        horror: 0,
+        music: 0,
+        mystery: 0,
+        romance: 0,
+        sciencefiction: 0,
+        tvmovie: 0,
+        thriller: 0,
+        war: 0,
+        western: 0,
+        UserId: newUser.id
+      });
     })
       .then(() => {
         res.redirect(307, "/api/login");
@@ -87,9 +121,19 @@ module.exports = app => {
   // const searchQuery = "romance";
 
   app.get("/movies", (req, res) => {
-    unirest.get("https://api.themoviedb.org/3/discover/movie?api_key=" + API_KEY + "&language=en-US&region=US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=12%2C%2016")
+    unirest.get("https://api.themoviedb.org/3/discover/movie?api_key=" + MOVIE_DB_KEY + "&query=" + searchText)
       .header("Content-Type", "application/json")
-      .end(function(result) {
+      .end(function (result) {
+        res.json(result.body);
+      });
+  });
+
+
+
+  app.get("/api/movie/:search", (req, res) => {
+    unirest.get("https://api.themoviedb.org/3/search/movie?api_key=" + API_KEY + "&language=en-US&query=" + req.params.search + "&page=1&include_adult=false")
+      .header("Content-Type", "application/json")
+      .end(function (result) {
         res.json(result.body);
       });
   });
@@ -120,3 +164,6 @@ module.exports = app => {
     });
   });
 };
+
+
+// "https://api.themoviedb.org/3/discover/movie?api_key=" + API_KEY + "&language=en-US&region=US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=12%2C%2016"

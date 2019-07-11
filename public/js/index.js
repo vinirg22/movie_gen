@@ -6,7 +6,7 @@ var $exampleList = $("#example-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(example) {
+  saveMovieScores: function(example) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
@@ -16,13 +16,13 @@ var API = {
       data: JSON.stringify(example)
     });
   },
-  getExamples: function() {
+  getMovieScores: function() {
     return $.ajax({
       url: "api/MovieScores",
       type: "GET"
     });
   },
-  deleteExample: function(id) {
+  deleteMovieScores: function(id) {
     return $.ajax({
       url: "api/MovieScores/" + id,
       type: "DELETE"
