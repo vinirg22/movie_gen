@@ -2,12 +2,22 @@
   line-height: 2.5;
 }
 
-
+html, body {
+  height: 100%;
+  margin: 0;
+}
 body {
   background-image: url("https://images.pexels.com/photos/1764338/pexels-photo-1764338.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
   background-color: #cccccc;
  }
- 
+ .container {
+   max-width: 100vw;
+   
+ }
+ .wrapper{
+  min-height: 100%;
+  margin-bottom: -150px;
+ }
  .navbar{
    height: 100px;
  }
@@ -19,7 +29,7 @@ body {
 
 .box{
   border-style: solid; 
-  margin-top:10%;
+  
   background-color: #534f4f5d;
   padding: 30px;
   text-align: center;
@@ -29,6 +39,33 @@ body {
   margin-top:10%;
 }
 
+<<<<<<< HEAD
+.footer{
+  /* position:fixed;
+  bottom:0;
+  right:0;
+  left:0; */
+  color:rgb(238, 234, 234);
+  border-radius: none;
+
+}
+
+.first-layer {
+  text-align: center;
+}
+
+.footer,
+.push {
+  height: 150px;
+}
+.no-border{
+  border-radius: 0px;
+  padding: 1rem;
+}
+
+
+=======
 .moviePoster:hover {
   opacity:0.5;
 }
+>>>>>>> 9888d637182e8975a8e15ce5374152bf9800de20
