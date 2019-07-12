@@ -12,7 +12,7 @@ $("#user-survey").on("submit", function(e) {
       genres: [question1.value, question2.value, question3.value]
     }
   })
-    .then(function(data) {
+    .then(function() {
       window.location.replace("/movie");
     })
     .catch(function(err) {
