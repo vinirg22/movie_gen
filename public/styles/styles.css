@@ -35,10 +35,11 @@ body {
   text-align: center;
 }
 
-.pushdown {
+.pushdown{
   margin-top:10%;
 }
 
+<<<<<<< HEAD
 .footer{
   /* position:fixed;
   bottom:0;
@@ -63,3 +64,8 @@ body {
 }
 
 
+=======
+.moviePoster:hover {
+  opacity:0.5;
+}
+>>>>>>> 9888d637182e8975a8e15ce5374152bf9800de20

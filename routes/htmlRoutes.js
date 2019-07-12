@@ -10,14 +10,14 @@ module.exports = app => {
   app.get("/about", (req, res) => res.render("about"));
 
   // Load profile page
-  app.get("/profile", isAuthenticated, (req, res) => {
+  app.get("/movie", isAuthenticated, (req, res) => {
     db.User.findOne({
       where: {
         id: req.user.id
       },
       include: [db.MovieScores]
     }).then(dbUser => {
-      res.render("profile", { user: dbUser });
+      res.render("movie", { user: dbUser });
     });
   });
 
@@ -42,8 +42,8 @@ module.exports = app => {
       });
     });
   });
-  // Load movies page
-  app.get("/movies", (req, res) => res.render("movies"));
+  // Load movie page
+  app.get("/movie", (req, res) => res.render("movie"));
 
   // Render 404 page for any unmatched routes
   app.get("*", (req, res) => res.render("404"));
