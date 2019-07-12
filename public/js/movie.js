@@ -28,7 +28,9 @@ function getMovies(searchText) {
 
 const favArr = [];
 
-$(".moviePoster").on("click", () => {
+$(".moviePoster").on("click", event => {
+  event.preventDefault();
+  alert("Hello!");
   genreArr = $(this).attr("data-stuff");
   favArr.push("data-id");
 });
