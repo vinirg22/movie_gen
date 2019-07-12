@@ -36,15 +36,10 @@ body {
 }
 
 .pushdown{
-  margin-top:10%;
+  margin-top:5%;
 }
 
-<<<<<<< HEAD
 .footer{
-  /* position:fixed;
-  bottom:0;
-  right:0;
-  left:0; */
   color:rgb(238, 234, 234);
   border-radius: none;
 
@@ -63,9 +58,6 @@ body {
   padding: 1rem;
 }
 
-
-=======
 .moviePoster:hover {
   opacity:0.5;
 }
->>>>>>> 9888d637182e8975a8e15ce5374152bf9800de20
