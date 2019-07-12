@@ -1,16 +1,23 @@
-	<div class="container">
-		<div class="jumbotron">
-			<h1 class="text-center">Search Movie</h1>
-			<form id="searchForm">
+<div class="container" style="max-width: 800px;">
+	<div class="jumbotron">
+		<video width="320" height="240" autoplay>
+			<source src="https://player.vimeo.com/external/220523787.sd.mp4?s=8b21e11b304c8c455e1dfd1d663356fb19c5b879&profile_id=164" type="video/mp4">
+		</video>
+		<h1 class="text-center">Search Movie</h1>
+		<form id="searchForm">
+			<div class="input-group">
 				<input type="text" class="form-control" id="searchText" placeholder="Search Movie">
-			</form>
-			<button id="searchMovie" type="submit" class="btn btn-primary">Submit</button>
-		</div>
+				<div class="input-group-append">
+					<button id="searchMovie" type="submit" class="btn btn-primary">Search</button>
+				</div>
+			</div>
+		</form>
 	</div>
+</div>
 
-	<div class="container">
-		<div id="movies" class="row"></div>
-	</div>
+<div class="container">
+	<div id="movies" class="row"></div>
+</div>
 
 
 <script src="/js/movie.js"></script>
