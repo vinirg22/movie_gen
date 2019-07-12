@@ -2,14 +2,24 @@ $("#user-survey").on("submit", function(e) {
   e.preventDefault();
   // alert("I HAVE BEEN CLICKED!!!!!!!FIND ME!!!");
   var surveyResponse = {
-    question1: $("#question1").val()
+    question1: $("#question1").val(),
+    question2: $("#question2").val(),
+    question3: $("#question3").val(),
+    question4: $("#question4").val(),
+    question5: $("#question5").val()
   };
   console.log(surveyResponse);
   $.ajax({
     method: "PUT",
     url: "/api/moviescores",
     data: {
-      genres: [question1.value, question2.value, question3.value]
+      genres: [
+        question1.value,
+        question2.value,
+        question3.value,
+        question4.value,
+        question5.value
+      ]
     }
   })
     .then(function() {
