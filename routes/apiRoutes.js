@@ -128,8 +128,6 @@ module.exports = app => {
       });
   });
 
-
-
   app.get("/api/movie/:search", (req, res) => {
     unirest.get("https://api.themoviedb.org/3/search/movie?api_key=" + API_KEY + "&language=en-US&query=" + req.params.search + "&page=1&include_adult=false")
       .header("Content-Type", "application/json")
@@ -138,6 +136,7 @@ module.exports = app => {
       });
   });
 
+<<<<<<< HEAD
   app.post("/api/moviescores", isAuthenticated, (req, res) => {
     db.MovieScores.create({
       action: 0,
@@ -163,6 +162,8 @@ module.exports = app => {
       res.json(dbMovieScores);
     });
   });
+=======
+>>>>>>> e2861d2d23dc2b3ceb5fec8e8da3664a7da28654
 };
 
 
