@@ -6,6 +6,8 @@ module.exports = app => {
 
   // Load login page
   app.get("/login", (req, res) => res.render("login"));
+  // Load about page
+  app.get("/about", (req, res) => res.render("about"));
 
   // Load profile page
   app.get("/profile", isAuthenticated, (req, res) => {
