@@ -2,7 +2,11 @@ $("#user-survey").on("submit", function(e) {
   e.preventDefault();
   // alert("I HAVE BEEN CLICKED!!!!!!!FIND ME!!!");
   var surveyResponse = {
-    question1: $("#question1").val()
+    question1: $("#question1").val(),
+    question2: $("#question2").val(),
+    question3: $("#question3").val(),
+    question4: $("#question4").val(),
+    question5: $("#question5").val()
   };
   console.log(surveyResponse);
   $.ajax({
