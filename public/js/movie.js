@@ -1,15 +1,16 @@
-$("#searchMovie").on("click", (event) => {
+$("#searchMovie").on("click", event => {
   event.preventDefault();
 
-  let searchText = $("#searchText").val().trim();
+  let searchText = $("#searchText")
+    .val()
+    .trim();
   console.log(searchText);
   getMovies(searchText);
 });
 
 function getMovies(searchText) {
   console.log("movies");
-  $.get("/api/movie/:" + searchText, function (data) {
-  }).then(function (res) {
+  $.get("/api/movie/:" + searchText, function(data) {}).then(function(res) {
     console.log(res);
     //console.log(res.results[0].poster_path);
     // let newMovie = res.results[0].poster_path;

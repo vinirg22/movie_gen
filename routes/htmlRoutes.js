@@ -1,16 +1,15 @@
 const db = require("../models");
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 module.exports = app => {
-  // Load home page
-  app.get("/movie", (req, res) => res.render("movie"));
-
   // Load signup page
   app.get("/", (req, res) => res.render("signup"));
 
   // Load login page
   app.get("/login", (req, res) => res.render("login"));
+  // Load about page
+  app.get("/about", (req, res) => res.render("about"));
 
-  // Load movie page
+  // Load profile page
   app.get("/movie", isAuthenticated, (req, res) => {
     db.User.findOne({
       where: {
@@ -28,7 +27,7 @@ module.exports = app => {
       where: {
         id: req.user.id
       }
-      //include: [db.MovieScores]
+      // include: [db.MovieScores]
     }).then(dbUser => {
       res.render("survey", { user: dbUser });
     });
@@ -43,8 +42,8 @@ module.exports = app => {
       });
     });
   });
-  // // Load movies page
-  // app.get("/movie", (req, res) => res.render("movie"));
+  // Load movie page
+  app.get("/movie", (req, res) => res.render("movie"));
 
   // Render 404 page for any unmatched routes
   app.get("*", (req, res) => res.render("404"));
