@@ -75,10 +75,6 @@ module.exports = (sequelize, DataTypes) => {
     western: {
       type: DataTypes.INTEGER,
       defaultValue: 0
-    },
-    UserId: {
-      type: DataTypes.INTEGER,
-      defaultValue: 0
     }
   });
 
