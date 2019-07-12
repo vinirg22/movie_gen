@@ -13,13 +13,7 @@ $("#user-survey").on("submit", function(e) {
     method: "PUT",
     url: "/api/moviescores",
     data: {
-      genres: [
-        question1.value,
-        question2.value,
-        question3.value,
-        question4.value,
-        question5.value
-      ]
+      genres: [question1.value, question2.value, question3.value]
     }
   })
     .then(function() {
