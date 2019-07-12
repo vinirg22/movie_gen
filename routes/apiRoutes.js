@@ -128,8 +128,6 @@ module.exports = app => {
       });
   });
 
-
-
   app.get("/api/movie/:search", (req, res) => {
     unirest.get("https://api.themoviedb.org/3/search/movie?api_key=" + API_KEY + "&language=en-US&query=" + req.params.search + "&page=1&include_adult=false")
       .header("Content-Type", "application/json")
@@ -137,6 +135,7 @@ module.exports = app => {
         res.json(result.body);
       });
   });
+
 };
 
 

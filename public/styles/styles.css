@@ -28,3 +28,7 @@ body {
 .pushdown{
   margin-top:10%
 }
+
+.moviePoster:hover {
+  opacity:0.5;
+}
