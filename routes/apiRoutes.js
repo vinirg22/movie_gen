@@ -42,7 +42,7 @@ module.exports = app => {
     });
   });
   // Create a new MovieScores
-  app.put("/api/moviescores", (req, res) => {
+  app.put("/api/moviescores", isAuthenticated, (req, res) => {
     console.log(req.user);
     console.log(req.body);
     db.MovieScores.increment(req.body.genres, {
@@ -120,7 +120,7 @@ module.exports = app => {
   const API_KEY = process.env.MOVIE_DB_KEY;
   // const searchQuery = "romance";
 
-  app.get("/movies", (req, res) => {
+  app.get("/movies", isAuthenticated, (req, res) => {
     unirest.get("https://api.themoviedb.org/3/discover/movie?api_key=" + MOVIE_DB_KEY + "&query=" + searchText)
       .header("Content-Type", "application/json")
       .end(function (result) {
@@ -128,7 +128,7 @@ module.exports = app => {
       });
   });
 
-  app.get("/api/movie/:search", (req, res) => {
+  app.get("/api/movie/:search", isAuthenticated, (req, res) => {
     unirest.get("https://api.themoviedb.org/3/search/movie?api_key=" + API_KEY + "&language=en-US&query=" + req.params.search + "&page=1&include_adult=false")
       .header("Content-Type", "application/json")
       .end(function (result) {
