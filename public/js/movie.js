@@ -10,35 +10,45 @@ $("#searchMovie").on("click", event => {
 
 function getMovies(searchText) {
   console.log("movies");
-  // eslint-disable-next-line no-empty-function
   $.get("/api/movie/:" + searchText, function(data) {}).then(function(res) {
     console.log(res);
-    console.log(res.results[0].poster_path);
-    let newMovie = res.results[0].poster_path;
+    //console.log(res.results[0].poster_path);
+    // let newMovie = res.results[0].poster_path;
+    // console.log(res.results[0].genre_ids);
+    // console.log(res.results[0].id);
+    // res.results[i].genre_ids
     let output = "";
     for (var i = 0; i < 10; i++) {
       output += $(`<div class="col - md - 3">
-               <img width="300px" src="https://image.tmdb.org/t/p/w500${res.results[i].poster_path}"></img>
+               <img class="moviePoster" data-id="${res.results[i].id}" width="300px" data-stuff="${res.results[i].genre_ids}" src="https://image.tmdb.org/t/p/w500${res.results[i].poster_path}"></img>
                </div >`).appendTo("#movies");
     }
   });
 }
+
+const favArr = [];
+
+$(".moviePoster").on("click", () => {
+  genreArr = $(this).attr("data-stuff");
+  favArr.push("data-id");
+});
+
 // function movieSelected(id) {
-//   sessionStorage.setItem("movieId", id);
+//   sessionStorage.setItem("movie-id", id);
 //   window.location = "movie.handlebars";
 //   return false;
 // }
 
-// function getMovie() {
+// function movieId() {
 //   let movieId = sessionStorage.getItem("movieId");
-
-//   unirest.get(`https://api.themoviedb.org/3/discover/movie?api_key=${MOVIE_DB_KEY}&query=${searchId}`)
-//     .then(response => {
-//       console.log(response);
-//       let movie = response.data;
+//   console.log("movieId");
+//   $.get("/api/movieId/:" + searchId, function(data) {
+//   }).then(function(res) {
+//     console.log(res);
+//     console.log(res.results[0].Poster.Title);
+//       let newID = res.results[0].Poster.Title;
 
 //       let output =
-
 //         $(`<div class="row">
 //                     <div class="col-md-4">
 //                         <img src="${movie.Poster}" class="thumbnail"></img>
@@ -46,6 +56,7 @@ function getMovies(searchText) {
 //                     <div class="col-dm-8">
 //                         <h2>${movie.Title}</h2>
 //                         <ul class="list group">
+//                         <img width="300px" src="https://image.tmdb.org/t/p/w500${res.results[i].Poster.Title}"></img>
 //                             <li class="list-group-item"><strong>Genre:</strong> $(movie.Genre)</li>
 //                             <li class="list-group-item"><strong>Released:</strong> $(movie.Released)</li>
 //                             <li class="list-group-item"><strong>Rated:</strong> $(movie.Rated)</li>
