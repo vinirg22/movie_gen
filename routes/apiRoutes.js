@@ -128,15 +128,16 @@ module.exports = app => {
       });
   });
 
-  // app.get("/api/movie/:search", isAuthenticated, (req, res) => {
-  //   unirest.get("https://api.themoviedb.org/3/search/movie?api_key=" + API_KEY + "&language=en-US&query=" + req.params.search + "&page=1&include_adult=false")
-  //     .header("Content-Type", "application/json")
-  //     .end(function (result) {
-  //       res.json(result.body);
-  //     });
-  // });
+  app.get("/api/movieTitle/:search", isAuthenticated, (req, res) => {
+    unirest.get("https://api.themoviedb.org/3/search/movie?api_key=" + API_KEY + "&language=en-US&query=" + req.params.search + "&page=1&include_adult=false")
+      .header("Content-Type", "application/json")
+      .end(function (result) {
+        console.log("got to the movie title search results");
+        res.json(result.body);
+      });
+  });
 
-  app.get("/api/movie/:search", isAuthenticated, (req, res) => {
+  app.get("/api/movieGenre/:search", isAuthenticated, (req, res) => {
     
     unirest.get("https://api.themoviedb.org/3/discover/movie?api_key=" + API_KEY + "&language=en-US&region=US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=" + req.params.search)
       .header("Content-Type", "application/json")

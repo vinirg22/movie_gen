@@ -2,7 +2,7 @@ window.onload = function () {
   let genreNumber = localStorage.getItem("search");
   // alert("search text value is " + searchText);
 
-  $.get("/api/movie/" + genreNumber).then(function(res) {
+  $.get("/api/movieGenre/" + genreNumber).then(function (res) {
     console.log(res);
     for (var i = 0; i < 6; i++) {
       $(`<div><img class="moviePoster" data-id="${res.results[i].id}" width="200px" data-stuff="${res.results[i].genre_ids}" src="https://image.tmdb.org/t/p/w500${res.results[i].poster_path}"></img>
@@ -23,16 +23,15 @@ $("#searchMovie").on("click", event => {
 
 function getMovies(searchText) {
   console.log("movies");
-  $.get("/api/movie/:" + searchText, function (data) { }).then(function (res) {
+
+  $.get("/api/movieTitle/" + searchText).then(function (res) {
     console.log(res);
-    $.get("/api/movie/" + genreNumber).then(function(res) {
-      console.log(res);
-      for (var i = 0; i < 6; i++) {
-        $(`<div><img class="moviePoster" data-id="${res.results[i].id}" width="200px" data-stuff="${res.results[i].genre_ids}" src="https://image.tmdb.org/t/p/w500${res.results[i].poster_path}"></img>
+    for (var i = 0; i < 6; i++) {
+      $(`<div><img class="moviePoster" data-id="${res.results[i].id}" width="200px" data-stuff="${res.results[i].genre_ids}" src="https://image.tmdb.org/t/p/w500${res.results[i].poster_path}"></img>
           </div>`).appendTo("#searchMovies");
-      }
-    });
+    }
   });
+
 }
 var genreArr = [];
 const favArr = [];
