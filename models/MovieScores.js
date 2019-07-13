@@ -85,5 +85,6 @@ module.exports = (sequelize, DataTypes) => {
       }
     });
   };
+  console.log("this is the " + MovieScores);
   return MovieScores;
 };
