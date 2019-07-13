@@ -11,7 +11,8 @@ module.exports = app => {
         UserId: req.user.id
       }
     }).then(dbMovieScores => {
-      console.log("check this spot "+ dbMovieScores);
+      var userGenreDB = dbMovieScores[0].dataValues;
+      console.log(userGenreDB);
       res.json(dbMovieScores);
     });
   });
@@ -147,7 +148,22 @@ module.exports = app => {
         res.json(result.body);
       });
   });
+
+  app.get("/api/getTable", isAuthenticated, (req, res) => {
+    db.MovieScores.findAll({
+      where: {
+        UserId: req.user.id
+      }
+    }).then(dbMovieScores => {
+      var userGenreDB = dbMovieScores[0].dataValues;
+      console.log(userGenreDB);
+      res.json(userGenreDB);
+      //res.json(dbMovieScores);
+    });
+  });
 };
+
+
 
 
 // "https://api.themoviedb.org/3/discover/movie?api_key=" + API_KEY + "&language=en-US&region=US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=12%2C%2016"
