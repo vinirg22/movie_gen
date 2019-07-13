@@ -1,5 +1,5 @@
+DROP DATABASE IF EXISTS movies_db;
 
--- DROP DATABASE IF EXISTS movies_bd;
 CREATE DATABASE movies_db;
 
 USE movies_db;
@@ -12,3 +12,7 @@ CREATE TABLE users (
   PRIMARY KEY ( id )
   
 );
+
+SELECT * FROM users;
+
+SELECT * FROM MovieScores;

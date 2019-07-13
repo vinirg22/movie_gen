@@ -77,17 +77,13 @@ $("#user-survey").on("submit", function (e) {
       genres: [question1.value, question2.value, question3.value]
     }
   })
-    .then(function () {
-      var searchOne = question1.value;
-      alert("value is " + searchOne);
+    .then(function() {
       var genreAnswer = genreNameToId(question1.value) + ", " + genreNameToId(question2.value) + ", " + genreNameToId(question3.value);
-      alert("concat value is " + genreAnswer);
       localStorage.setItem("search", genreAnswer);
       window.location.replace("/movie");
     })
-    .catch(function (err) {
+    .catch(function(err) {
       console.log(err);
       alert(err.responseText);
     });
 });
-
