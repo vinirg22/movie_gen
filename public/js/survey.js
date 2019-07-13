@@ -1,3 +1,12 @@
+var genreId;
+function genreNameToId(name) {
+  if (name == "family") {
+    genreId = 12;
+  }
+
+  return genreId;
+}
+
 $("#user-survey").on("submit", function(e) {
   e.preventDefault();
   // alert("I HAVE BEEN CLICKED!!!!!!!FIND ME!!!");
@@ -15,6 +24,11 @@ $("#user-survey").on("submit", function(e) {
     }
   })
     .then(function() {
+      var searchOne = question1.value;
+      alert("value is " + searchOne);
+      let genreAnswer = genreNameToId(searchOne);
+
+      localStorage.setItem("search", genreAnswer);
       window.location.replace("/movie");
     })
     .catch(function(err) {

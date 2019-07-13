@@ -1,3 +1,19 @@
+window.onload = function() {
+  let genreNumber = localStorage.getItem("search");
+  // alert("search text value is " + searchText);
+
+  $.get("/api/movie/" + genreNumber).then(function(res) {
+    console.log(res);
+
+    let output = "";
+    for (var i = 0; i < 10; i++) {
+      output += $(`<div class="col-md-3">
+               <img  class="moviePoster" data-id="${res.results[i].id}" width="300px" data-stuff="${res.results[i].genre_ids}" src="https://image.tmdb.org/t/p/w500${res.results[i].poster_path}"></img>
+               </div >`).appendTo("#movies");
+    }
+  });
+};
+
 $("#searchMovie").on("click", event => {
   event.preventDefault();
 
@@ -10,10 +26,12 @@ $("#searchMovie").on("click", event => {
 
 function getMovies(searchText) {
   console.log("movies");
-  $.get("/api/movie/:" + searchText, function() {}).then(function(res) {
+  $.get("/api/movie/:" + searchText, function(data) {}).then(function(res) {
+    console.log(res);
+
+    let output = "";
     for (var i = 0; i < 10; i++) {
-      // add poster element to page
-      $(`<div class="col-md-3">
+      output += $(`<div class="col-md-3">
                <img  class="moviePoster" data-id="${res.results[i].id}" width="300px" data-stuff="${res.results[i].genre_ids}" src="https://image.tmdb.org/t/p/w500${res.results[i].poster_path}"></img>
                </div >`).appendTo("#movies");
     }
