@@ -121,15 +121,6 @@ module.exports = app => {
   });
 
   const API_KEY = process.env.MOVIE_DB_KEY;
-  // const searchQuery = "romance";
-
-  // app.get("/movies", isAuthenticated, (req, res) => {
-  //   unirest.get("https://api.themoviedb.org/3/discover/movie?api_key=" + MOVIE_DB_KEY + "&query=" + searchText)
-  //     .header("Content-Type", "application/json")
-  //     .end(function (result) {
-  //       res.json(result.body);
-  //     });
-  // });
 
   app.get("/api/movieTitle/:search", isAuthenticated, (req, res) => {
     unirest.get("https://api.themoviedb.org/3/search/movie?api_key=" + API_KEY + "&language=en-US&query=" + req.params.search + "&page=1&include_adult=false")
@@ -141,7 +132,6 @@ module.exports = app => {
   });
 
   app.get("/api/movieGenre/:search", isAuthenticated, (req, res) => {
-    
     unirest.get("https://api.themoviedb.org/3/discover/movie?api_key=" + API_KEY + "&language=en-US&region=US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=" + req.params.search)
       .header("Content-Type", "application/json")
       .end(function (result) {
@@ -158,12 +148,6 @@ module.exports = app => {
       var userGenreDB = dbMovieScores[0].dataValues;
       console.log(userGenreDB);
       res.json(userGenreDB);
-      //res.json(dbMovieScores);
     });
   });
 };
-
-
-
-
-// "https://api.themoviedb.org/3/discover/movie?api_key=" + API_KEY + "&language=en-US&region=US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=12%2C%2016"

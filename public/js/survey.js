@@ -1,4 +1,4 @@
-$("#user-survey").on("submit", function (e) {
+$("#user-survey").on("submit", function(e) {
   e.preventDefault();
   var surveyResponse = {
     question1: $("#question1").val(),
@@ -13,12 +13,10 @@ $("#user-survey").on("submit", function (e) {
       genres: [question1.value, question2.value, question3.value]
     }
   })
-    .then(function () {
-      // var genreAnswer = genreNameToId(question1.value) + ", " + genreNameToId(question2.value) + ", " + genreNameToId(question3.value);
-      // localStorage.setItem("search", genreAnswer);
+    .then(function() {
       window.location.replace("/movie");
     })
-    .catch(function (err) {
+    .catch(function(err) {
       console.log(err);
       alert(err.responseText);
     });

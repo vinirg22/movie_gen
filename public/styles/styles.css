@@ -62,7 +62,9 @@ body {
 .moviePoster:hover {
   opacity:0.5;
 }
-
+.moviePoster {
+  margin: 2px;
+}
 
 
 .content {
@@ -86,3 +88,12 @@ body {
   cursor: pointer;
 }
 
+@media screen and (max-width: 375px) {
+  .moviePoster {
+    width: 99%;
+  }
+  .signup{
+    width: 90%;
+    
+  }
+}

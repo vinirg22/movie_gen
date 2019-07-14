@@ -7,7 +7,7 @@ window.onload = function () {
 
   //Get the top 3 Genre from table
   $.get("/api/getTable/").then(function (res) {
-    //console.log(res);
+    console.log(res);
     // takes table object and puts it into an array
     userTable = res;
     userTableArr.push(userTable.action);
@@ -48,7 +48,7 @@ window.onload = function () {
     // load recommended movies
     $.get("/api/movieGenre/" + genreNumber).then(function (res) {
       console.log(res);
-      for (var i = 0; i < 6; i++) {
+      for (var i = 0; i < 12; i++) {
         $(`<div><img class="moviePoster" data-id="${res.results[i].id}" width="200px" data-stuff="${res.results[i].genre_ids}" src="https://image.tmdb.org/t/p/w500${res.results[i].poster_path}"></img>
           </div>`).appendTo("#recMovies");
       }
@@ -226,7 +226,7 @@ function getMovies(searchText) {
     console.log(res);
     for (var i = 0; i < 6; i++) {
       $(`<div><img class="moviePoster" data-id="${res.results[i].id}" width="200px" data-stuff="${res.results[i].genre_ids}" src="https://image.tmdb.org/t/p/w500${res.results[i].poster_path}"></img>
-          </div>`).appendTo("#searchMovies");
+          </div>`).prependTo("#searchMovies");
     }
   });
 }
@@ -306,7 +306,7 @@ function genreIdToName(genreIdInput) {
       genreId = "scriencefiction";
       break;
     case 10770:
-      genreId = "tvmovie"
+      genreId = "tvmovie";
       break;
     case 53:
       genreId = "thriller";
