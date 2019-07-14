@@ -2,8 +2,6 @@ var userTable = {};
 var userTableArr = [];
 var genreNumber;
 window.onload = function() {
-  //let genreNumber = localStorage.getItem("search");
-  // alert("search text value is " + searchText);
 
   //Get the top 3 Genre from table
   $.get("/api/getTable/").then(function(res) {
@@ -28,15 +26,12 @@ window.onload = function() {
     userTableArr.push(userTable.tvmovie);
     userTableArr.push(userTable.war);
     userTableArr.push(userTable.western);
-    //console.log(userTableArr);
+
     var top3Genre = getMax(userTableArr);
     var top3GenreArr = [];
     top3GenreArr.push(indexToGenre(top3Genre[0][1]));
     top3GenreArr.push(indexToGenre(top3Genre[1][1]));
     top3GenreArr.push(indexToGenre(top3Genre[2][1]));
-    //console.log(top3GenreArr);
-
-    //var top3GenreIdArr = [];
 
     genreNumber =
       genreNameToId(top3GenreArr[0]) +
@@ -319,9 +314,3 @@ function genreIdToName(genreIdInput) {
   }
   return genreId;
 }
-
-// function movieSelected(id) {
-//   sessionStorage.setItem("movie-id", id);
-//   window.location = "movie.handlebars";
-//   return false;
-// }
