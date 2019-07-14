@@ -1,14 +1,11 @@
-$("#user-survey").on("submit", function(e) {
+$("#user-survey").on("submit", function (e) {
   e.preventDefault();
-  // alert("I HAVE BEEN CLICKED!!!!!!!FIND ME!!!");
   var surveyResponse = {
     question1: $("#question1").val(),
     question2: $("#question2").val(),
-    question3: $("#question3").val(),
-    question4: $("#question4").val(),
-    question5: $("#question5").val()
+    question3: $("#question3").val()
   };
-  console.log(surveyResponse);
+  //console.log(surveyResponse);
   $.ajax({
     method: "PUT",
     url: "/api/moviescores",
@@ -16,10 +13,12 @@ $("#user-survey").on("submit", function(e) {
       genres: [question1.value, question2.value, question3.value]
     }
   })
-    .then(function() {
+    .then(function () {
+      // var genreAnswer = genreNameToId(question1.value) + ", " + genreNameToId(question2.value) + ", " + genreNameToId(question3.value);
+      // localStorage.setItem("search", genreAnswer);
       window.location.replace("/movie");
     })
-    .catch(function(err) {
+    .catch(function (err) {
       console.log(err);
       alert(err.responseText);
     });
