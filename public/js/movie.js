@@ -238,7 +238,6 @@ $(document).on("click", ".moviePoster", function() {
   var genreArr = genreList.split(",").map(function(item) {
     return parseInt(item, 10);
   });
-
   var genreIdArr = [];
   for (let i = 0; i < genreArr.length; i++) {
     genreIdArr.push(genreIdToName(parseInt(genreArr[i])));
