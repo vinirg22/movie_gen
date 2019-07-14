@@ -38,7 +38,12 @@ window.onload = function () {
 
     //var top3GenreIdArr = [];
 
-    genreNumber = genreNameToId(top3GenreArr[0]) + ", " + genreNameToId(top3GenreArr[1]) + ", " + genreNameToId(top3GenreArr[2]);
+    genreNumber =
+      genreNameToId(top3GenreArr[0]) +
+      ", " +
+      genreNameToId(top3GenreArr[1]) +
+      ", " +
+      genreNameToId(top3GenreArr[2]);
 
     // load recommended movies
     $.get("/api/movieGenre/" + genreNumber).then(function (res) {
@@ -233,7 +238,7 @@ $(document).on("click", ".moviePoster", function () {
     return parseInt(item, 10);
   });
   console.log("array of numbers");
-console.log(genreArr);
+  console.log(genreArr);
   var genreIdArr = [];
   for (let i = 0; i < genreArr.length; i++) {
     genreIdArr.push(genreIdToName(parseInt(genreArr[i])));
