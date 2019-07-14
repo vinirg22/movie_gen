@@ -1,95 +1,46 @@
-# node-handlebars-passport-boilerplate 🍽️
+# Wat2Watch App
+## Overview
+Wat2Watch is a full stack application that collects information through surveys and favorited movies, stores and analyzes it in a MySQL database, and gives the user recommendations for movies that they would like.
 
-## Introduction
+## Usage
+Wat2Watch runs in the browser window and is deployed on Heroku. To start, go to https://movie-generator.herokuapp.com/ and create a new user to log into the application. After the new user is created and logged in, the user will be directed to answer a few questions on a survey. Based on these results, the app will recommend movies for the user to watch. The user is also able to add any movies to their favorites list. Information from the favorites list is stored in a MySql database. The app will analyze the the stored information and recommend more movies to the user when the page is reloaded. The more information the application is able to collect, the more accurate the recommendations will be. 
 
-This project is meant to be boilerplate for express, sequelize, handlebars, and passport.
+## Examples
+### Images:
+![alt text](./public/images/login_ss.png "login")
+Screenshot of the Login page
+
+![alt text](./public/images/survey_ss.png "survey")
+Screenshot of the Survey page
+
+![alt text](./public/images/wat2watch_ss.png "home")
+Screenshot of the Home page
+
+![alt text](./public/images/about_ss.png "about")
+Screenshot of the About page
 
 
-## Installation
 
-1. Create a mysql database called `exampledb`
+## Technologies
+Wat2Watch was created using these technologies
+* JavaScipt
+* Node.js
+* MySql
+* API
+    * The Movie Database API
+* NPM JS Packages
+    * Bcrypt
+    * Dotenv
+    * Express
+    * Express Handlebars
+    * Express Session
+    * Morgan
+    * MySQL 2
+    * Passport
+    * Sequelize
+    * Unirest
 
-2. Update the `config.json` to match your local database, username, password
 
-3. Add a `.env` at the top level of this project. 
+## GITHUB
+[github link](https://github.com/vinirg22/movie_gen)
 
-4. Then inside of the .env add a SERVER_SECRET set to any value you'd like
-```
-SERVER_SECRET = 123456
-```
-
-5. `npm install`
-
-6. `node server.js`
-
-## Demo of this App
-
-You can find a demo of this app here:
-
-https://node-passport-sequelize.herokuapp.com/
-
-## GitHub for this App
-
-https://github.com/Travo100/project-two-starter-code-with-auth
-
-{
-  "genres": [
-      "id": 28,
-      "name": "Action"
-
-      "id": 12,
-      "name": "Adventure"
-    
-      "id": 16,
-      "name": "Animation"
-
-      "id": 35,
-      "name": "Comedy"
-
-      "id": 80,
-      "name": "Crime"
-
-      "id": 99,
-      "name": "Documentary"
-
-      "id": 18,
-      "name": "Drama"
-
-      "id": 10751,
-      "name": "Family"
-
-      "id": 14,
-      "name": "Fantasy"
-
-      "id": 36,
-      "name": "History"
-
-      "id": 27,
-      "name": "Horror"
-
-      "id": 10402,
-      "name": "Music"
-
-      "id": 9648,
-      "name": "Mystery"
-
-      "id": 10749,
-      "name": "Romance"
-
-      "id": 878,
-      "name": "Science Fiction"
-
-      "id": 10770,
-      "name": "TV Movie"
-
-      "id": 53,
-      "name": "Thriller"
-
-      "id": 10752,
-      "name": "War"
-
-      "id": 37,
-      "name": "Western"
-    }
-  ]
-}
