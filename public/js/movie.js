@@ -184,7 +184,7 @@ function genreNameToId(name) {
   case "romance":
     genreId = 10749;
     break;
-  case "science fiction":
+  case "sciencefiction":
     genreId = 878;
     break;
   case "tv movie":
@@ -245,7 +245,7 @@ $(document).on("click", ".moviePoster", function() {
       genres: genreIdArr
     }
   }).then(function() {
-    console.log("table should be updated");
+    console.log(genreIdArr);
   });
 });
 
@@ -295,7 +295,7 @@ function genreIdToName(genreIdInput) {
     genreId = "romance";
     break;
   case 878:
-    genreId = "scriencefiction";
+    genreId = "sciencefiction";
     break;
   case 10770:
     genreId = "tvmovie";
